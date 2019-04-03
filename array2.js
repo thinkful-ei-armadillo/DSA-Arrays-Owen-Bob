@@ -1,5 +1,7 @@
-const memory = require('./memory');
-
+'use strict';
+const mem = require('./memory');
+const memory = new mem();
+//problem 1
 class Array {
   constructor() {
     this.length = 0;
@@ -9,7 +11,7 @@ class Array {
 
   push(value) {
     if (this._capacity <= this.length) {
-      this._resize(this.length + 1 * Array.SIZE_RATIO);
+      this._resize((this.length + 1) * Array.SIZE_RATIO);
     }
     memory.set(this.ptr + this.length, value);
     this.length++;
@@ -62,5 +64,40 @@ class Array {
   }
 }
 Array.SIZE_RATIO = 3;
-
 module.exports = Array;
+
+function main() {
+
+  Array.SIZE_RATIO = 3;
+
+  let arr = new Array();
+
+  // Problem 2
+  //arr.push(3);
+  //length 1 cap 3 ma 0
+  //arr.push(5);
+  //l 2 cap 3 ma 0
+  //arr.push(15);
+  //l 3 cap 3 ma 0
+  //arr.push(19);
+  //l 4 cap 12 ma 3
+  //arr.push(45);
+  //l 5 cap 12 ma 3
+  //arr.push(10);
+  //l 6 cap 12 ma 3
+
+  //Problem 3
+  // arr.pop();
+  // arr.pop();
+  // arr.pop();
+
+  //Problem 4
+  // arr.get(0);
+  //arr.push('tauhida');
+  //console.log(arr.get(0));
+  //The purpose of _resize() is to increase capacity and moving ptr to the beginning of new capacity
+
+
+}
+
+main();
